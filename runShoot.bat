@@ -1,2 +1,3 @@
-"build/gameShoot.exe"
+cd build
+"gameShoot.exe"
 pause
