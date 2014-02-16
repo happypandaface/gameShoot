@@ -1,0 +1,13 @@
+
+-- GENERAL --
+
+You have to have MinGW installed and in the path to use the batch files. I may add a Makefile in the future. I have a bunch of libs in the ./lib folder that should cover the libraries not found in a basic MinGW install on a windows machine.
+
+
+-- ADVANCED --
+
+So in ./build, some of the files aren't built by my build script (as you've probably noticed), namely "alut.dll" and "OpenAL32.dll" I want to explain how exactly to obtain these.
+
+alut.dll I obtained from googling alut windows binaries, pretty simple.
+
+But when searching for OpenAL32.dll, I found the site openal.org to be down and all the creative links to be 404'd. So it is actually just the soft openal dll, "soft_oal.dll" that has been renamed to "OpenAL32.dll" I hope this helps?
