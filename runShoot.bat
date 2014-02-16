@@ -1,0 +1,2 @@
+"build/gameShoot.exe"
+pause
