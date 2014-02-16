@@ -6,80 +6,10 @@
 #include <GL/gl.h>
 #include <math.h>
 
-#include <AL/al.h>
-#include <AL/alc.h>
-#include <AL/alut.h>
-
 #include <gameLib.h>
 #include <gameShootConsts.h>
-
-typedef enum { false, true } bool;
-
-int gameTime = 0;
-float triPos = 0.5;
-bool up,down,left,right;
-bool wDown,aDown,sDown,dDown;
-float cooldown = 0;
-float spawnCooldown;
-float survivalTime = 0;
-
-typedef enum {start, game, death} GameState;
-
-GameState gameState;
-
-const Dim2 PLAYER_DIM = {GUY_SIZE, GUY_SIZE};
-const Dim2 ENEMY_DIM = {ENEMY_SIZE, ENEMY_SIZE};
-const Dim2 BULLET_DIM = {BULLET_SIZE, BULLET_SIZE};
-
-struct Guy
-{
-	bool spawned;
-	Pos2 pos;
-	float spawnTime;
-};
-
-struct Bullet
-{
-	bool spawned;
-	Pos2 pos;
-	float traveled;
-	int direction;
-};
-
-struct Guy guy;
-
-struct Guy enemies[MAX_ENEMIES];
-struct Bullet bullets[MAX_BULLETS];
-
-#define NUM_SOUNDS 4
-
-#define SHOOT_SOUND 0
-#define ZDEATH_SOUND 1
-#define ZSPAWN_SOUND 2
-#define PLAYER_DEATH_SOUND 3
-
-ALuint shootSound;
-ALuint zDeathSound;
-ALuint zSpawnSound;
-ALuint pDeathSound;
-
-void playSound(int snd)
-{
-	switch (snd){
-		case SHOOT_SOUND:
-			alSourcePlay(shootSound);
-			break;
-		case ZDEATH_SOUND:
-			alSourcePlay(zDeathSound);
-			break;
-		case ZSPAWN_SOUND:
-			alSourcePlay(zSpawnSound);
-			break;
-		case PLAYER_DEATH_SOUND:
-			alSourcePlay(pDeathSound);
-			break;
-	}
-}
+#include <gameShootSetup.h>
+#include <gameShootSounds.h>
 
 void keyboardDown(unsigned char key, int x, int y)
 {
