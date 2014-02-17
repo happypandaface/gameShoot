@@ -11,20 +11,22 @@
 #include <gameShootSetup.h>
 #include <gameShootSounds.h>
 
+ShootGame shootGame;
+
 void keyboardDown(unsigned char key, int x, int y)
 {
 	switch(key){
 		case 'w':
-			wDown = true;
+			shootGame.input.wDown = true;
 			break;
 		case 'a':
-			aDown = true;
+			shootGame.input.aDown = true;
 			break;
 		case 's':
-			sDown = true;
+			shootGame.input.sDown = true;
 			break;
 		case 'd':
-			dDown = true;
+			shootGame.input.dDown = true;
 			break;
 	}
 }
@@ -49,7 +51,7 @@ void resetGame()
 
 void startGame()
 {
-	survivalTime = 0;
+	shootGame.survivalTime = 0;
 }
 
 void keyboardUp(unsigned char key, int x, int y)
@@ -58,28 +60,28 @@ void keyboardUp(unsigned char key, int x, int y)
 		exit(0);
 	if (key == ' ')
 	{
-		if (gameState == start)
+		if (shootGame.gameState == start)
 		{
 			startGame();
-			gameState = game;
-		}else if (gameState == death)
+			shootGame.gameState = game;
+		}else if (shootGame.gameState == death)
 		{
 			resetGame();
-			gameState = start;
+			shootGame.gameState = start;
 		}
 	}
 	switch(key){
 		case 'w':
-			wDown = false;
+			shootGame.input.wDown = false;
 			break;
 		case 'a':
-			aDown = false;
+			shootGame.input.aDown = false;
 			break;
 		case 's':
-			sDown = false;
+			shootGame.input.sDown = false;
 			break;
 		case 'd':
-			dDown = false;
+			shootGame.input.dDown = false;
 			break;
 	}
 }
@@ -88,16 +90,16 @@ void keyboardSpecialDown(int key, int x, int y)
 {
 	switch(key) {
 		case GLUT_KEY_UP :
-			up = true;
+			shootGame.input.up = true;
 		break;
 		case GLUT_KEY_DOWN :
-			down = true;
+			shootGame.input.down = true;
 		break;
 		case GLUT_KEY_LEFT :
-			left = true;
+			shootGame.input.left = true;
 		break;
 		case GLUT_KEY_RIGHT :
-			right = true;
+			shootGame.input.right = true;
 		break;
 		default:
 			break;
@@ -108,16 +110,16 @@ void keyboardSpecialUp(int key, int x, int y)
 {
 	switch(key) {
 		case GLUT_KEY_UP :
-			up = false;
+			shootGame.input.up = false;
 		break;
 		case GLUT_KEY_DOWN :
-			down = false;
+			shootGame.input.down = false;
 		break;
 		case GLUT_KEY_LEFT :
-			left = false;
+			shootGame.input.left = false;
 		break;
 		case GLUT_KEY_RIGHT :
-			right = false;
+			shootGame.input.right = false;
 		break;
 		default:
 			break;
@@ -138,7 +140,7 @@ float lastTime = 0;
 void fireBullet(int direction)
 {
 	playSound(SHOOT_SOUND);
-	cooldown = GUN_COOLDOWN;
+	shootGame.cooldown = GUN_COOLDOWN;
 	int i = 0;
 	while(i < MAX_BULLETS)
 	{
@@ -158,7 +160,7 @@ void fireBullet(int direction)
 void spawnEnemy(float x, float y)
 {
 	playSound(ZSPAWN_SOUND);
-	spawnCooldown = SPAWN_COOLDOWN-sqrt(SPAWN_COOLDOWN_MOD*survivalTime);
+	shootGame.spawnCooldown = SPAWN_COOLDOWN-sqrt(SPAWN_COOLDOWN_MOD*shootGame.survivalTime);
 	int i = 0;
 	while(i < MAX_ENEMIES)
 	{
@@ -191,11 +193,11 @@ void renderScene(void)
 	
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	
-	if (gameState == game || gameState == death)
+	if (shootGame.gameState == game || shootGame.gameState == death)
 	{
-		if (gameState == death)
+		if (shootGame.gameState == death)
 			delta = 0;
-		survivalTime += delta;
+		shootGame.survivalTime += delta;
 		// Reset transformations
 		glLoadIdentity();
 		// Set the camera
@@ -208,8 +210,8 @@ void renderScene(void)
 		//glRotatef(angle, 0.0f, 1.0f, 0.0f);
 		//glColor3f(red,green,blue);
 		
-		if (spawnCooldown > 0)
-			spawnCooldown -= delta;
+		if (shootGame.spawnCooldown > 0)
+			shootGame.spawnCooldown -= delta;
 		else
 		{
 			spawnEnemy(
@@ -218,27 +220,27 @@ void renderScene(void)
 			//spawnEnemy(-0.5f, -0.5f);
 		}
 		
-		if (cooldown > 0)
-			cooldown -= delta;
+		if (shootGame.cooldown > 0)
+			shootGame.cooldown -= delta;
 		else
 		{
-			if (wDown)
+			if (shootGame.input.wDown)
 				fireBullet(UP);
-			else if (aDown)
+			else if (shootGame.input.aDown)
 				fireBullet(LEFT);
-			else if (sDown)
+			else if (shootGame.input.sDown)
 				fireBullet(DOWN);
-			else if (dDown)
+			else if (shootGame.input.dDown)
 				fireBullet(RIGHT);
 		}
 		
-		if (up == true)
+		if (shootGame.input.up == true)
 			guy.pos.y += delta*MOVE_SPEED;
-		if (down == true)
+		if (shootGame.input.down == true)
 			guy.pos.y -= delta*MOVE_SPEED;
-		if (right == true)
+		if (shootGame.input.right == true)
 			guy.pos.x += delta*MOVE_SPEED;
-		if (left == true)
+		if (shootGame.input.left == true)
 			guy.pos.x -= delta*MOVE_SPEED;
 		if (guy.pos.x > 1)
 			guy.pos.x = 1;
@@ -265,11 +267,11 @@ void renderScene(void)
 				bool drawEnemy = true;
 				if (enemies[i].spawnTime > SPAWN_TIME)
 				{
-					if (gameState == game &&
+					if (shootGame.gameState == game &&
 						checkCollision(enemies[i].pos, ENEMY_DIM, guy.pos, PLAYER_DIM))
 					{
 						playSound(PLAYER_DEATH_SOUND);
-						gameState = death;
+						shootGame.gameState = death;
 					}
 					if (guy.pos.x < enemies[i].pos.x-MOVE_SPEED_ENEMY_1*delta)
 						enemies[i].pos.x -= MOVE_SPEED_ENEMY_1*delta;
@@ -282,7 +284,7 @@ void renderScene(void)
 				}else
 				{
 					enemies[i].spawnTime += delta;
-					if (gameState != death && ((int)(enemies[i].spawnTime*BLINK_RATE))%2 == 0)
+					if (shootGame.gameState != death && ((int)(enemies[i].spawnTime*BLINK_RATE))%2 == 0)
 						drawEnemy = false;
 				}
 				if (drawEnemy == true)
@@ -309,10 +311,7 @@ void renderScene(void)
 				{
 					if (enemies[c].spawned == true && enemies[c].spawnTime > SPAWN_TIME)
 					{
-						if (enemies[c].pos.x + ENEMY_SIZE > bullets[i].pos.x - BULLET_SIZE &&
-							enemies[c].pos.x - ENEMY_SIZE < bullets[i].pos.x + BULLET_SIZE &&
-							enemies[c].pos.y + ENEMY_SIZE > bullets[i].pos.y - BULLET_SIZE &&
-							enemies[c].pos.y - ENEMY_SIZE < bullets[i].pos.y + BULLET_SIZE)
+						if (checkCollision(enemies[c].pos, ENEMY_DIM, bullets[i].pos, BULLET_DIM))
 						{
 							playSound(ZDEATH_SOUND);
 							enemies[c].spawned = false;
@@ -347,7 +346,7 @@ void renderScene(void)
 			++i;
 		}
 	}
-	else if (gameState == start)
+	else if (shootGame.gameState == start)
 	{
 		glColor3f(1.0f,1.0f,1.0f);
 		glRasterPos2f(-0.3f, 0.2f);
@@ -359,14 +358,14 @@ void renderScene(void)
 		glRasterPos2f(-0.5f, -0.1f);
 		glutBitmapString(GLUT_BITMAP_8_BY_13, "Press space to start");
 	}
-	if (gameState == death)
+	if (shootGame.gameState == death)
 	{
 		glColor3f(1.0f,1.0f,1.0f);
 		glRasterPos2f(-0.54f, 0.2f);
 		glutBitmapString(GLUT_BITMAP_8_BY_13, "YOU'VE BEEN KILLED!");
 		glRasterPos2f(-0.67f, 0.1f);
 		char timeStr[256];
-		sprintf(timeStr, "You survived for: %d seconds", ((int)survivalTime));
+		sprintf(timeStr, "You survived for: %d seconds", ((int)shootGame.survivalTime));
 		glutBitmapString(GLUT_BITMAP_8_BY_13, timeStr);
 		glRasterPos2f(-0.56f, 0.0f);
 		glutBitmapString(GLUT_BITMAP_8_BY_13, "Press space to continue");
@@ -434,7 +433,7 @@ int main(int argc, char **argv)
 	srand(time(0));
 	guy.pos.x = 0;
 	guy.pos.y = 0;
-	spawnCooldown = SPAWN_COOLDOWN;
+	shootGame.spawnCooldown = SPAWN_COOLDOWN;
 	
 	// init GLUT and create Window
 	glutInit(&argc, argv);

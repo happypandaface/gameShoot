@@ -28,3 +28,24 @@ struct Bullet
 	float traveled;
 	int direction;
 };
+
+typedef struct
+{
+	bool left;
+	bool right;
+	bool up;
+	bool down;
+	bool wDown;
+	bool aDown;
+	bool sDown;
+	bool dDown;
+} Input;
+
+typedef struct
+{
+	Input input;
+	GameState gameState;
+	float cooldown;
+	float spawnCooldown;
+	float survivalTime;
+} ShootGame;
