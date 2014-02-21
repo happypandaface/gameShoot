@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <string.h>
 
+#include <GL/glew.h>
 #include <GL/freeglut.h>
 #include <GL/gl.h>
 #include <math.h>
@@ -12,6 +13,9 @@
 #include <gameShootSounds.h>
 
 ShootGame shootGame;
+
+void resetGame();
+void startGame();
 
 void keyboardDown(unsigned char key, int x, int y)
 {
@@ -29,29 +33,6 @@ void keyboardDown(unsigned char key, int x, int y)
 			shootGame.input.dDown = true;
 			break;
 	}
-}
-
-void resetGame()
-{
-	int i = 0;
-	while (i < MAX_ENEMIES)
-	{
-		enemies[i].spawned = false;
-		++i;
-	}
-	i = 0;
-	while (i < MAX_BULLETS)
-	{
-		bullets[i].spawned = false;
-		++i;
-	}
-	guy.pos.x = 0;
-	guy.pos.y = 0;
-}
-
-void startGame()
-{
-	shootGame.survivalTime = 0;
 }
 
 void keyboardUp(unsigned char key, int x, int y)
@@ -124,6 +105,29 @@ void keyboardSpecialUp(int key, int x, int y)
 		default:
 			break;
 	}
+}
+
+void resetGame()
+{
+	int i = 0;
+	while (i < MAX_ENEMIES)
+	{
+		enemies[i].spawned = false;
+		++i;
+	}
+	i = 0;
+	while (i < MAX_BULLETS)
+	{
+		bullets[i].spawned = false;
+		++i;
+	}
+	guy.pos.x = 0;
+	guy.pos.y = 0;
+}
+
+void startGame()
+{
+	shootGame.survivalTime = 0;
 }
 
 bool checkCollision(Pos2 obj1, Dim2 dim1, Pos2 obj2, Dim2 dim2)
@@ -201,11 +205,11 @@ void renderScene(void)
 		// Reset transformations
 		glLoadIdentity();
 		// Set the camera
-		/*
-		gluLookAt(	0.0f, 0.0f, 10.0f,
-				0.0f, 0.0f,  0.0f,
-				0.0f, 1.0f,  0.0f);
-				*/
+		
+		//gluLookAt(	0.0f, 0.0f, 10.0f,
+		//		0.0f, 0.0f,  0.0f,
+		//		0.0f, 1.0f,  0.0f);
+				
 		
 		//glRotatef(angle, 0.0f, 1.0f, 0.0f);
 		//glColor3f(red,green,blue);
@@ -348,7 +352,7 @@ void renderScene(void)
 	}
 	else if (shootGame.gameState == start)
 	{
-		glColor3f(1.0f,1.0f,1.0f);
+		//glColor3f(1.0f,1.0f,1.0f);
 		glRasterPos2f(-0.3f, 0.2f);
 		glutBitmapString(GLUT_BITMAP_8_BY_13, "THIS GAME");
 		glRasterPos2f(-0.6f, 0.1f);
@@ -360,7 +364,7 @@ void renderScene(void)
 	}
 	if (shootGame.gameState == death)
 	{
-		glColor3f(1.0f,1.0f,1.0f);
+		//glColor3f(1.0f,1.0f,1.0f);
 		glRasterPos2f(-0.54f, 0.2f);
 		glutBitmapString(GLUT_BITMAP_8_BY_13, "YOU'VE BEEN KILLED!");
 		glRasterPos2f(-0.67f, 0.1f);
@@ -392,8 +396,43 @@ void audioCleanUp()
 
 #define FILENAME "sample.wav"
 
+
+const GLchar* vertexShaderSource = "\n\
+#version 150\n\
+in vec3 vertex;\n\
+varying vec3 position;\n\
+void\n\
+main()\n\
+{\n\
+	position = vertex;\n\
+    gl_Position = vec4(vertex,1.0);\n\
+}\n\
+";
+
+const GLchar* fragmentShaderSource = "\n\
+#version 150\n\
+out vec4 fragmentColor;\n\
+varying vec3 position;\n\
+void\n\
+main()\n\
+{\n\
+    float x_dis = position.x;\n\
+    float y_dis = position.y;\n\
+	float dst = sqrt(pow(x_dis, 2.0) + pow(y_dis, 2.0));\n\
+	if (dst < 0.5)\n\
+		fragmentColor = vec4(0.0, 1.0, 0.0, 1.0);\n\
+	else\n\
+		fragmentColor = vec4(1.0, 0.0, 0.0, 1.0);\n\
+}\n\
+";
+
 int main(int argc, char **argv)
 {
+	
+	printf("Elapsed seconds\n");
+	fflush(stdout);
+	
+	
     alutInit(0, NULL);
     alGetError();
 	ALuint state;
@@ -437,6 +476,7 @@ int main(int argc, char **argv)
 	
 	// init GLUT and create Window
 	glutInit(&argc, argv);
+	
 	glutInitDisplayMode(GLUT_DEPTH | GLUT_DOUBLE | GLUT_RGBA);
 	glutInitWindowPosition(200,100);
 	glutInitWindowSize(320,320);
@@ -447,6 +487,19 @@ int main(int argc, char **argv)
 	glutKeyboardUpFunc(keyboardUp);
 	glutSpecialFunc(keyboardSpecialDown);
 	glutSpecialUpFunc(keyboardSpecialUp);
+	
+	GLenum err = glewInit();
+	GLuint vShader = glCreateShader(GL_VERTEX_SHADER);
+	GLuint fShader = glCreateShader(GL_FRAGMENT_SHADER);
+	glShaderSource(vShader, 1, &vertexShaderSource, NULL);
+	glShaderSource(fShader, 1, &fragmentShaderSource, NULL);
+	glCompileShader(vShader);
+	glCompileShader(fShader);
+	GLuint program = glCreateProgram();
+	glAttachShader(program, vShader);
+	glAttachShader(program, fShader);
+	glLinkProgram(program);
+	glUseProgram(program);
 	
 	// register callbacks
 	glutDisplayFunc(renderScene);

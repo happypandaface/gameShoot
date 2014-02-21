@@ -1,3 +1,3 @@
 cd build
-"gameShoot.exe"
+"gameShoot.exe" > ../log.txt
 pause
