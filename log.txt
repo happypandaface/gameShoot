@@ -1,6 +1,628 @@
-Elapsed seconds
-vert shader: Vertex shader was successfully compiled to run on hardware.
-  
-frag shader: Fragment shader was successfully compiled to run on hardware.
-  
-raw img load err: 1
+gcc -c -o build/glew.o src/glew.c -DGLEW_STATIC -I./src/include
+src/glew.c:37:24: error: GL/glxew.h: No such file or directory
+src/glew.c: In function ‘_glewInit_GL_VERSION_1_2’:
+src/glew.c:3233: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c:3233: error: (Each undeclared identifier is reported only once
+src/glew.c:3233: error: for each function it appears in.)
+src/glew.c: In function ‘_glewInit_GL_VERSION_1_3’:
+src/glew.c:3253: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_VERSION_1_4’:
+src/glew.c:3311: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_VERSION_1_5’:
+src/glew.c:3370: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_VERSION_2_0’:
+src/glew.c:3401: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_VERSION_2_1’:
+src/glew.c:3506: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_VERSION_3_0’:
+src/glew.c:3524: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_VERSION_3_1’:
+src/glew.c:3591: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_VERSION_3_2’:
+src/glew.c:3607: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_VERSION_3_3’:
+src/glew.c:3622: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_VERSION_4_0’:
+src/glew.c:3635: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_3DFX_tbuffer’:
+src/glew.c:3672: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_AMD_debug_output’:
+src/glew.c:3697: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_AMD_draw_buffers_blend’:
+src/glew.c:3717: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_AMD_interleaved_elements’:
+src/glew.c:3733: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_AMD_multi_draw_indirect’:
+src/glew.c:3746: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_AMD_name_gen_delete’:
+src/glew.c:3760: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_AMD_performance_monitor’:
+src/glew.c:3775: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_AMD_sample_positions’:
+src/glew.c:3806: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_AMD_sparse_texture’:
+src/glew.c:3831: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_AMD_stencil_operation_extended’:
+src/glew.c:3845: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_AMD_vertex_shader_tessellator’:
+src/glew.c:3870: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_ANGLE_framebuffer_blit’:
+src/glew.c:3892: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_ANGLE_framebuffer_multisample’:
+src/glew.c:3905: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_ANGLE_instanced_arrays’:
+src/glew.c:3918: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_ANGLE_timer_query’:
+src/glew.c:3957: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_ANGLE_translated_shader_source’:
+src/glew.c:3980: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_APPLE_element_array’:
+src/glew.c:4001: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_APPLE_fence’:
+src/glew.c:4018: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_APPLE_flush_buffer_range’:
+src/glew.c:4042: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_APPLE_object_purgeable’:
+src/glew.c:4056: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_APPLE_texture_range’:
+src/glew.c:4087: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_APPLE_vertex_array_object’:
+src/glew.c:4105: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_APPLE_vertex_array_range’:
+src/glew.c:4121: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_APPLE_vertex_program_evaluators’:
+src/glew.c:4136: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_ARB_ES2_compatibility’:
+src/glew.c:4159: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_ARB_base_instance’:
+src/glew.c:4184: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_ARB_bindless_texture’:
+src/glew.c:4199: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_ARB_blend_func_extended’:
+src/glew.c:4227: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_ARB_buffer_storage’:
+src/glew.c:4241: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_ARB_cl_event’:
+src/glew.c:4255: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_ARB_clear_buffer_object’:
+src/glew.c:4268: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_ARB_clear_texture’:
+src/glew.c:4284: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_ARB_color_buffer_float’:
+src/glew.c:4298: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_ARB_compute_shader’:
+src/glew.c:4319: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_ARB_compute_variable_group_size’:
+src/glew.c:4333: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_ARB_copy_buffer’:
+src/glew.c:4350: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_ARB_copy_image’:
+src/glew.c:4363: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_ARB_debug_output’:
+src/glew.c:4376: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_ARB_draw_buffers’:
+src/glew.c:4404: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_ARB_draw_buffers_blend’:
+src/glew.c:4417: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_ARB_draw_elements_base_vertex’:
+src/glew.c:4433: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_ARB_draw_indirect’:
+src/glew.c:4449: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_ARB_framebuffer_no_attachments’:
+src/glew.c:4499: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_ARB_framebuffer_object’:
+src/glew.c:4515: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_ARB_geometry_shader4’:
+src/glew.c:4551: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_ARB_get_program_binary’:
+src/glew.c:4567: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_ARB_gpu_shader_fp64’:
+src/glew.c:4586: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_ARB_imaging’:
+src/glew.c:4624: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_ARB_indirect_parameters’:
+src/glew.c:4669: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_ARB_instanced_arrays’:
+src/glew.c:4683: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_ARB_internalformat_query’:
+src/glew.c:4698: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_ARB_internalformat_query2’:
+src/glew.c:4711: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_ARB_invalidate_subdata’:
+src/glew.c:4724: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_ARB_map_buffer_range’:
+src/glew.c:4746: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_ARB_matrix_palette’:
+src/glew.c:4760: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_ARB_multi_bind’:
+src/glew.c:4777: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_ARB_multi_draw_indirect’:
+src/glew.c:4795: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_ARB_multisample’:
+src/glew.c:4809: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_ARB_multitexture’:
+src/glew.c:4822: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_ARB_occlusion_query’:
+src/glew.c:4868: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_ARB_point_parameters’:
+src/glew.c:4896: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_ARB_program_interface_query’:
+src/glew.c:4914: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_ARB_provoking_vertex’:
+src/glew.c:4932: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_ARB_robustness’:
+src/glew.c:4953: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_ARB_sample_shading’:
+src/glew.c:4993: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_ARB_sampler_objects’:
+src/glew.c:5006: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_ARB_separate_shader_objects’:
+src/glew.c:5040: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_ARB_shader_atomic_counters’:
+src/glew.c:5112: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_ARB_shader_image_load_store’:
+src/glew.c:5137: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_ARB_shader_objects’:
+src/glew.c:5155: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_ARB_shader_storage_buffer_object’:
+src/glew.c:5214: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_ARB_shader_subroutine’:
+src/glew.c:5227: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_ARB_shading_language_include’:
+src/glew.c:5259: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_ARB_sparse_texture’:
+src/glew.c:5289: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_ARB_sync’:
+src/glew.c:5307: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_ARB_tessellation_shader’:
+src/glew.c:5326: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_ARB_texture_buffer_object’:
+src/glew.c:5344: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_ARB_texture_buffer_range’:
+src/glew.c:5361: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_ARB_texture_compression’:
+src/glew.c:5375: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_ARB_texture_multisample’:
+src/glew.c:5442: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_ARB_texture_storage’:
+src/glew.c:5486: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_ARB_texture_storage_multisample’:
+src/glew.c:5504: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_ARB_texture_view’:
+src/glew.c:5524: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_ARB_timer_query’:
+src/glew.c:5537: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_ARB_transform_feedback2’:
+src/glew.c:5552: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_ARB_transform_feedback3’:
+src/glew.c:5571: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_ARB_transform_feedback_instanced’:
+src/glew.c:5587: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_ARB_transpose_matrix’:
+src/glew.c:5601: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_ARB_uniform_buffer_object’:
+src/glew.c:5617: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_ARB_vertex_array_object’:
+src/glew.c:5643: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_ARB_vertex_attrib_64bit’:
+src/glew.c:5659: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_ARB_vertex_attrib_binding’:
+src/glew.c:5681: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_ARB_vertex_blend’:
+src/glew.c:5699: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_ARB_vertex_buffer_object’:
+src/glew.c:5721: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_ARB_vertex_program’:
+src/glew.c:5744: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_ARB_vertex_shader’:
+src/glew.c:5818: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_ARB_vertex_type_2_10_10_10_rev’:
+src/glew.c:5837: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_ARB_viewport_array’:
+src/glew.c:5887: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_ARB_window_pos’:
+src/glew.c:5909: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_ATI_draw_buffers’:
+src/glew.c:5953: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_ATI_element_array’:
+src/glew.c:5966: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_ATI_envmap_bumpmap’:
+src/glew.c:5981: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_ATI_fragment_shader’:
+src/glew.c:5997: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_ATI_map_object_buffer’:
+src/glew.c:6023: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_ATI_pn_triangles’:
+src/glew.c:6041: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_ATI_separate_stencil’:
+src/glew.c:6055: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_ATI_vertex_array_object’:
+src/glew.c:6093: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_ATI_vertex_attrib_array_object’:
+src/glew.c:6117: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_ATI_vertex_streams’:
+src/glew.c:6132: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_EXT_bindable_uniform’:
+src/glew.c:6205: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_EXT_blend_color’:
+src/glew.c:6220: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_EXT_blend_equation_separate’:
+src/glew.c:6233: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_EXT_blend_func_separate’:
+src/glew.c:6246: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_EXT_blend_minmax’:
+src/glew.c:6263: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_EXT_color_subtable’:
+src/glew.c:6288: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_EXT_compiled_vertex_array’:
+src/glew.c:6302: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_EXT_convolution’:
+src/glew.c:6316: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_EXT_coordinate_frame’:
+src/glew.c:6341: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_EXT_copy_texture’:
+src/glew.c:6355: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_EXT_cull_vertex’:
+src/glew.c:6372: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_EXT_debug_marker’:
+src/glew.c:6386: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_EXT_depth_bounds_test’:
+src/glew.c:6401: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_EXT_direct_state_access’:
+src/glew.c:6414: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_EXT_draw_buffers2’:
+src/glew.c:6639: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_EXT_draw_instanced’:
+src/glew.c:6657: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_EXT_draw_range_elements’:
+src/glew.c:6671: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_EXT_fog_coord’:
+src/glew.c:6684: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_EXT_fragment_lighting’:
+src/glew.c:6701: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_EXT_framebuffer_blit’:
+src/glew.c:6731: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_EXT_framebuffer_multisample’:
+src/glew.c:6744: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_EXT_framebuffer_object’:
+src/glew.c:6761: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_EXT_geometry_shader4’:
+src/glew.c:6794: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_EXT_gpu_program_parameters’:
+src/glew.c:6809: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_EXT_gpu_shader4’:
+src/glew.c:6823: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_EXT_histogram’:
+src/glew.c:6869: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_EXT_index_func’:
+src/glew.c:6895: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_EXT_index_material’:
+src/glew.c:6908: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_EXT_light_texture’:
+src/glew.c:6925: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_EXT_multi_draw_arrays’:
+src/glew.c:6944: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_EXT_multisample’:
+src/glew.c:6958: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_EXT_paletted_texture’:
+src/glew.c:6984: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_EXT_pixel_transform’:
+src/glew.c:7004: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_EXT_point_parameters’:
+src/glew.c:7026: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_EXT_polygon_offset’:
+src/glew.c:7040: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_EXT_provoking_vertex’:
+src/glew.c:7053: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_EXT_scene_marker’:
+src/glew.c:7070: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_EXT_secondary_color’:
+src/glew.c:7084: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_EXT_separate_shader_objects’:
+src/glew.c:7113: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_EXT_shader_image_load_store’:
+src/glew.c:7132: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_EXT_stencil_two_side’:
+src/glew.c:7158: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_EXT_subtexture’:
+src/glew.c:7175: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_EXT_texture3D’:
+src/glew.c:7194: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_EXT_texture_array’:
+src/glew.c:7207: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_EXT_texture_buffer_object’:
+src/glew.c:7220: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_EXT_texture_integer’:
+src/glew.c:7277: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_EXT_texture_object’:
+src/glew.c:7303: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_EXT_texture_perturb_normal’:
+src/glew.c:7321: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_EXT_timer_query’:
+src/glew.c:7358: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_EXT_transform_feedback’:
+src/glew.c:7372: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_EXT_vertex_array’:
+src/glew.c:7391: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_EXT_vertex_attrib_64bit’:
+src/glew.c:7415: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_EXT_vertex_shader’:
+src/glew.c:7438: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_EXT_vertex_weighting’:
+src/glew.c:7492: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_EXT_x11_sync_object’:
+src/glew.c:7507: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_GREMEDY_frame_terminator’:
+src/glew.c:7520: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_GREMEDY_string_marker’:
+src/glew.c:7533: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_HP_image_transform’:
+src/glew.c:7550: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_IBM_multimode_draw_arrays’:
+src/glew.c:7580: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_IBM_vertex_array_lists’:
+src/glew.c:7606: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_INTEL_map_texture’:
+src/glew.c:7634: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_INTEL_parallel_arrays’:
+src/glew.c:7649: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_INTEL_texture_scissor’:
+src/glew.c:7665: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_KHR_debug’:
+src/glew.c:7679: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_KTX_buffer_region’:
+src/glew.c:7705: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_MESA_resize_buffers’:
+src/glew.c:7730: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_MESA_window_pos’:
+src/glew.c:7743: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_NVX_conditional_render’:
+src/glew.c:7783: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_NV_bindless_multi_draw_indirect’:
+src/glew.c:7801: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_NV_bindless_texture’:
+src/glew.c:7815: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_NV_blend_equation_advanced’:
+src/glew.c:7840: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_NV_conditional_render’:
+src/glew.c:7866: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_NV_copy_image’:
+src/glew.c:7884: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_NV_depth_buffer_float’:
+src/glew.c:7901: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_NV_draw_texture’:
+src/glew.c:7924: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_NV_evaluators’:
+src/glew.c:7937: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_NV_explicit_multisample’:
+src/glew.c:7958: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_NV_fence’:
+src/glew.c:7973: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_NV_fragment_program’:
+src/glew.c:8000: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_NV_framebuffer_multisample_coverage’:
+src/glew.c:8030: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_NV_geometry_program4’:
+src/glew.c:8043: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_NV_gpu_program4’:
+src/glew.c:8060: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_NV_gpu_shader5’:
+src/glew.c:8096: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_NV_half_float’:
+src/glew.c:8142: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_NV_occlusion_query’:
+src/glew.c:8212: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_NV_parameter_buffer_object’:
+src/glew.c:8235: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_NV_path_rendering’:
+src/glew.c:8254: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_NV_pixel_data_range’:
+src/glew.c:8315: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_NV_point_sprite’:
+src/glew.c:8329: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_NV_present_video’:
+src/glew.c:8343: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_NV_primitive_restart’:
+src/glew.c:8361: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_NV_register_combiners’:
+src/glew.c:8375: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_NV_register_combiners2’:
+src/glew.c:8400: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_NV_shader_buffer_load’:
+src/glew.c:8422: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_NV_texture_barrier’:
+src/glew.c:8463: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_NV_texture_multisample’:
+src/glew.c:8488: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_NV_transform_feedback’:
+src/glew.c:8522: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_NV_transform_feedback2’:
+src/glew.c:8545: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_NV_vdpau_interop’:
+src/glew.c:8564: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_NV_vertex_array_range’:
+src/glew.c:8586: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_NV_vertex_attrib_integer_64bit’:
+src/glew.c:8604: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_NV_vertex_buffer_unified_memory’:
+src/glew.c:8635: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_NV_vertex_program’:
+src/glew.c:8659: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_NV_video_capture’:
+src/glew.c:8755: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_OES_single_precision’:
+src/glew.c:8791: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_REGAL_ES1_0_compatibility’:
+src/glew.c:8829: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_REGAL_ES1_1_compatibility’:
+src/glew.c:8872: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_REGAL_error_string’:
+src/glew.c:8901: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_REGAL_extension_query’:
+src/glew.c:8914: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_REGAL_log’:
+src/glew.c:8928: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_SGIS_detail_texture’:
+src/glew.c:8953: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_SGIS_fog_function’:
+src/glew.c:8967: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_SGIS_multisample’:
+src/glew.c:8985: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_SGIS_sharpen_texture’:
+src/glew.c:9007: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_SGIS_texture4D’:
+src/glew.c:9021: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_SGIS_texture_filter4’:
+src/glew.c:9043: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_SGIX_async’:
+src/glew.c:9065: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_SGIX_flush_raster’:
+src/glew.c:9107: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_SGIX_fog_texture’:
+src/glew.c:9124: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_SGIX_fragment_specular_lighting’:
+src/glew.c:9137: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_SGIX_framezoom’:
+src/glew.c:9166: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_SGIX_pixel_texture’:
+src/glew.c:9191: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_SGIX_reference_plane’:
+src/glew.c:9208: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_SGIX_sprite’:
+src/glew.c:9233: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_SGIX_tag_sample_buffer’:
+src/glew.c:9249: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_SGI_color_table’:
+src/glew.c:9302: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_SUNX_constant_data’:
+src/glew.c:9325: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_SUN_global_alpha’:
+src/glew.c:9342: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_SUN_read_video_pixels’:
+src/glew.c:9366: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_SUN_triangle_list’:
+src/glew.c:9383: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_SUN_vertex’:
+src/glew.c:9402: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: In function ‘_glewInit_GL_WIN_swap_hint’:
+src/glew.c:9462: error: ‘glXGetProcAddressARB’ undeclared (first use in this function)
+src/glew.c: At top level:
+src/glew.c:12329: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__glewXGetCurrentDisplay’
+src/glew.c:12331: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__glewXChooseFBConfig’
+src/glew.c:12332: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__glewXCreateNewContext’
+src/glew.c:12333: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__glewXCreatePbuffer’
+src/glew.c:12334: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__glewXCreatePixmap’
+src/glew.c:12335: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__glewXCreateWindow’
+src/glew.c:12336: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__glewXDestroyPbuffer’
+src/glew.c:12337: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__glewXDestroyPixmap’
+src/glew.c:12338: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__glewXDestroyWindow’
+src/glew.c:12339: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__glewXGetCurrentReadDrawable’
+src/glew.c:12340: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__glewXGetFBConfigAttrib’
+src/glew.c:12341: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__glewXGetFBConfigs’
+src/glew.c:12342: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__glewXGetSelectedEvent’
+src/glew.c:12343: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__glewXGetVisualFromFBConfig’
+src/glew.c:12344: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__glewXMakeContextCurrent’
+src/glew.c:12345: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__glewXQueryContext’
+src/glew.c:12346: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__glewXQueryDrawable’
+src/glew.c:12347: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__glewXSelectEvent’
+src/glew.c:12349: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__glewXBlitContextFramebufferAMD’
+src/glew.c:12350: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__glewXCreateAssociatedContextAMD’
+src/glew.c:12351: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__glewXCreateAssociatedContextAttribsAMD’
+src/glew.c:12352: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__glewXDeleteAssociatedContextAMD’
+src/glew.c:12353: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__glewXGetContextGPUIDAMD’
+src/glew.c:12354: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__glewXGetCurrentAssociatedContextAMD’
+src/glew.c:12355: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__glewXGetGPUIDsAMD’
+src/glew.c:12356: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__glewXGetGPUInfoAMD’
+src/glew.c:12357: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__glewXMakeAssociatedContextCurrentAMD’
+src/glew.c:12359: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__glewXCreateContextAttribsARB’
+src/glew.c:12361: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__glewXBindTexImageATI’
+src/glew.c:12362: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__glewXDrawableAttribATI’
+src/glew.c:12363: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__glewXReleaseTexImageATI’
+src/glew.c:12365: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__glewXFreeContextEXT’
+src/glew.c:12366: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__glewXGetContextIDEXT’
+src/glew.c:12367: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__glewXImportContextEXT’
+src/glew.c:12368: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__glewXQueryContextInfoEXT’
+src/glew.c:12370: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__glewXSwapIntervalEXT’
+src/glew.c:12372: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__glewXBindTexImageEXT’
+src/glew.c:12373: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__glewXReleaseTexImageEXT’
+src/glew.c:12375: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__glewXGetAGPOffsetMESA’
+src/glew.c:12377: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__glewXCopySubBufferMESA’
+src/glew.c:12379: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__glewXCreateGLXPixmapMESA’
+src/glew.c:12381: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__glewXReleaseBuffersMESA’
+src/glew.c:12383: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__glewXSet3DfxModeMESA’
+src/glew.c:12385: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__glewXGetSwapIntervalMESA’
+src/glew.c:12386: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__glewXSwapIntervalMESA’
+src/glew.c:12388: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__glewXCopyImageSubDataNV’
+src/glew.c:12390: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__glewXBindVideoDeviceNV’
+src/glew.c:12391: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__glewXEnumerateVideoDevicesNV’
+src/glew.c:12393: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__glewXBindSwapBarrierNV’
+src/glew.c:12394: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__glewXJoinSwapGroupNV’
+src/glew.c:12395: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__glewXQueryFrameCountNV’
+src/glew.c:12396: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__glewXQueryMaxSwapGroupsNV’
+src/glew.c:12397: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__glewXQuerySwapGroupNV’
+src/glew.c:12398: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__glewXResetFrameCountNV’
+src/glew.c:12400: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__glewXAllocateMemoryNV’
+src/glew.c:12401: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__glewXFreeMemoryNV’
+src/glew.c:12403: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__glewXBindVideoCaptureDeviceNV’
+src/glew.c:12404: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__glewXEnumerateVideoCaptureDevicesNV’
+src/glew.c:12405: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__glewXLockVideoCaptureDeviceNV’
+src/glew.c:12406: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__glewXQueryVideoCaptureDeviceNV’
+src/glew.c:12407: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__glewXReleaseVideoCaptureDeviceNV’
+src/glew.c:12409: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__glewXBindVideoImageNV’
+src/glew.c:12410: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__glewXGetVideoDeviceNV’
+src/glew.c:12411: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__glewXGetVideoInfoNV’
+src/glew.c:12412: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__glewXReleaseVideoDeviceNV’
+src/glew.c:12413: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__glewXReleaseVideoImageNV’
+src/glew.c:12414: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__glewXSendPbufferToVideoNV’
+src/glew.c:12416: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__glewXGetMscRateOML’
+src/glew.c:12417: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__glewXGetSyncValuesOML’
+src/glew.c:12418: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__glewXSwapBuffersMscOML’
+src/glew.c:12419: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__glewXWaitForMscOML’
+src/glew.c:12420: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__glewXWaitForSbcOML’
+src/glew.c:12422: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__glewXChooseFBConfigSGIX’
+src/glew.c:12423: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__glewXCreateContextWithConfigSGIX’
+src/glew.c:12424: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__glewXCreateGLXPixmapWithConfigSGIX’
+src/glew.c:12425: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__glewXGetFBConfigAttribSGIX’
+src/glew.c:12426: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__glewXGetFBConfigFromVisualSGIX’
+src/glew.c:12427: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__glewXGetVisualFromFBConfigSGIX’
+src/glew.c:12429: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__glewXBindHyperpipeSGIX’
+src/glew.c:12430: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__glewXDestroyHyperpipeConfigSGIX’
+src/glew.c:12431: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__glewXHyperpipeAttribSGIX’
+src/glew.c:12432: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__glewXHyperpipeConfigSGIX’
+src/glew.c:12433: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__glewXQueryHyperpipeAttribSGIX’
+src/glew.c:12434: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__glewXQueryHyperpipeBestAttribSGIX’
+src/glew.c:12435: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__glewXQueryHyperpipeConfigSGIX’
+src/glew.c:12436: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__glewXQueryHyperpipeNetworkSGIX’
+src/glew.c:12438: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__glewXCreateGLXPbufferSGIX’
+src/glew.c:12439: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__glewXDestroyGLXPbufferSGIX’
+src/glew.c:12440: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__glewXGetSelectedEventSGIX’
+src/glew.c:12441: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__glewXQueryGLXPbufferSGIX’
+src/glew.c:12442: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__glewXSelectEventSGIX’
+src/glew.c:12444: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__glewXBindSwapBarrierSGIX’
+src/glew.c:12445: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__glewXQueryMaxSwapBarriersSGIX’
+src/glew.c:12447: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__glewXJoinSwapGroupSGIX’
+src/glew.c:12449: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__glewXBindChannelToWindowSGIX’
+src/glew.c:12450: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__glewXChannelRectSGIX’
+src/glew.c:12451: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__glewXChannelRectSyncSGIX’
+src/glew.c:12452: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__glewXQueryChannelDeltasSGIX’
+src/glew.c:12453: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__glewXQueryChannelRectSGIX’
+src/glew.c:12455: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__glewXCushionSGI’
+src/glew.c:12457: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__glewXGetCurrentReadDrawableSGI’
+src/glew.c:12458: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__glewXMakeCurrentReadSGI’
+src/glew.c:12460: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__glewXSwapIntervalSGI’
+src/glew.c:12462: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__glewXGetVideoSyncSGI’
+src/glew.c:12463: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__glewXWaitVideoSyncSGI’
+src/glew.c:12465: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__glewXGetTransparentIndexSUN’
+src/glew.c:12467: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__glewXGetVideoResizeSUN’
+src/glew.c:12468: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__glewXVideoResizeSUN’
+src/glew.c: In function ‘glxewGetExtension’:
+src/glew.c:13171: error: ‘glXGetCurrentDisplay’ undeclared (first use in this function)
+src/glew.c:13172: error: ‘GLX_EXTENSIONS’ undeclared (first use in this function)
+src/glew.c: In function ‘glxewContextInit’:
+src/glew.c:13186: error: ‘GLXEW_VERSION_1_0’ undeclared (first use in this function)
+src/glew.c:13187: error: ‘GLXEW_VERSION_1_1’ undeclared (first use in this function)
+src/glew.c:13188: error: ‘GLXEW_VERSION_1_2’ undeclared (first use in this function)
+src/glew.c:13189: error: ‘GLXEW_VERSION_1_3’ undeclared (first use in this function)
+src/glew.c:13190: error: ‘GLXEW_VERSION_1_4’ undeclared (first use in this function)
+src/glew.c:13212: error: ‘GLX_EXTENSIONS’ undeclared (first use in this function)
+make: *** [glew] Error 1

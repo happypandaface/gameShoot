@@ -11,3 +11,32 @@ So in ./build, some of the files aren't built by my build script (as you've prob
 alut.dll I obtained from googling alut windows binaries, pretty simple.
 
 But when searching for OpenAL32.dll, I found the site openal.org to be down and all the creative links to be 404'd. So it is actually just the soft openal dll, "soft_oal.dll" that has been renamed to "OpenAL32.dll" I hope this helps?
+
+
+-- LINUX --
+there is a makefile that will compile this game on CentOS. But it's kinda tricky.
+DEPENDENCIES:
+opengl
+libpng
+glut (freeglut works well)
+zlib
+alut (freealut works well)
+openal (openal soft works well)
+
+CentOS has YUM which doesn't have freeglut or (the correct version of) libpng, so to get those two
+working you first get opengl through yum, then we have to manually get
+freeglut and install with ./configure -> make -> sudo make install that's
+easy. Now for libpng. libpng relies on zlib and while yum supplies a version
+of that, I couldn't get my download of libpng to find it and zlib is small, so
+I just downloaded it again and built it (conf -> make -> install). Then I
+built libpng the same way. IMPORTANT PART: this would still cause libpng to
+fail on runtime "error while loading shared libraries" this is because in the
+make install of libpng it puts the so files in /usr/local/lib/ when your runtime
+only looks in /usr/lib/ the glaring solution is more symbolic links, but what
+I did is set (export) LD_LIBRARY_PATH to /usr/local/lib in my .bashrc and then I
+sourced it bam! it works!
+You can also edit your /etc/ld.so.conf file to make the dynamic linker look in
+that folder "/usr/local/lib" this is apparently a better solution because of
+some reason
+
+TODO get audio working in LINUX.

@@ -17,6 +17,7 @@
 static png_structp png_ptr;
 static png_infop info_ptr;
 
+
 GLuint loadTexture(const char* filename, int width, int height) 
 {
 	/*

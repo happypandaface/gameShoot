@@ -455,7 +455,7 @@ void audioCleanUp()
 
 
 const GLchar* vertexShaderSource = "\n\
-#version 330\n\
+#version 110\n\
 in vec2 texCoords;\n\
 out vec3 position;\n\
 out vec2 fragmentTexCoord;\n\
@@ -472,7 +472,7 @@ main()\n\
 ";
 
 const GLchar* fragmentShaderSource = "\n\
-#version 330\n\
+#version 110\n\
 uniform float gScale;\n\
 uniform sampler2D sampler;\n\
 in vec3 position;\n\
