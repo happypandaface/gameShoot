@@ -7,6 +7,7 @@
 #include <GL/gl.h>
 #include <math.h>
 
+#include <loadPNGtoGL.h>
 #include <gameLib.h>
 #include <gameShootConsts.h>
 #include <gameShootSetup.h>
@@ -16,6 +17,54 @@ ShootGame shootGame;
 
 void resetGame();
 void startGame();
+
+
+GLuint raw_texture_load(const char *filename, int width, int height)
+{
+	GLuint texture;
+	unsigned char *data;
+	FILE *file;
+
+	// open texture data
+	file = fopen(filename, "rb");
+	if (file == NULL) return 0;
+
+	// allocate buffer
+	data = (unsigned char*) malloc(width * height * 4);
+
+	// read texture data
+	fread(data, width * height * 4, 1, file);
+	fclose(file);
+
+	// allocate a texture name
+	glGenTextures(1, &texture);
+
+	// select our current texture
+	glBindTexture(GL_TEXTURE_2D, texture);
+
+	// select modulate to mix texture with color for shading
+	glTexEnvf(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_REPLACE);
+
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_DECAL);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_DECAL);
+
+	// when texture area is small, bilinear filter the closest mipmap
+	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_NEAREST);
+	// when texture area is large, bilinear filter the first mipmap
+	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+
+	// texture should tile
+	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+
+	// build our texture mipmaps
+	gluBuild2DMipmaps(GL_TEXTURE_2D, 4, width, height, GL_RGBA, GL_UNSIGNED_BYTE, data);
+
+	// free buffer
+	free(data);
+
+	return texture;
+}
 
 void keyboardDown(unsigned char key, int x, int y)
 {
@@ -185,6 +234,25 @@ float getRand()
 	return (float)((rand() % 100) + 1)/100.0f;
 }
 
+void drawObj(Pos2 pos, Dim2 dim)
+{
+	glEnable(GL_TEXTURE_2D);
+	glBegin(GL_QUADS);
+		glTexCoord2f(0.0f, 0.0f);
+		glVertex3f(pos.x-dim.x,pos.y-dim.y,0.0);
+		glTexCoord2f(0.0f, 1.0f);
+		glVertex3f(pos.x-dim.x,pos.y+dim.y,0.0);
+		glTexCoord2f(1.0f, 1.0f);
+		glVertex3f(pos.x+dim.x,pos.y+dim.y,0.0);
+		glTexCoord2f(1.0f, 0.0f);
+		glVertex3f(pos.x+dim.x,pos.y-dim.y,0.0);
+	glEnd();
+}
+
+GLuint sProgram;
+GLuint gScaleLocation;
+GLuint samplerLocation;
+
 void renderScene(void)
 {
 	float gameTime=glutGet(GLUT_ELAPSED_TIME);
@@ -195,7 +263,11 @@ void renderScene(void)
 		delta = (gameTime-lastTime)/1000;
 	lastTime = gameTime;
 	
+	glUniform1f(gScaleLocation, 0.5f+sinf(gameTime/100.0f)*0.07f);
+	glUniform1i(samplerLocation, 0);
+	
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+	
 	
 	if (shootGame.gameState == game || shootGame.gameState == death)
 	{
@@ -256,12 +328,7 @@ void renderScene(void)
 			guy.pos.y = -1;
 		
 		glColor3f(1.0f,0.0f,0.0f);
-		glBegin(GL_QUADS);
-			glVertex3f(guy.pos.x-GUY_SIZE,guy.pos.y-GUY_SIZE,0.0);
-			glVertex3f(guy.pos.x+GUY_SIZE,guy.pos.y-GUY_SIZE,0.0);
-			glVertex3f(guy.pos.x+GUY_SIZE,guy.pos.y+GUY_SIZE,0.0);
-			glVertex3f(guy.pos.x-GUY_SIZE,guy.pos.y+GUY_SIZE,0.0);
-		glEnd();
+		drawObj(guy.pos, PLAYER_DIM);
 		
 		int i = 0;
 		while (i < MAX_ENEMIES)
@@ -294,12 +361,7 @@ void renderScene(void)
 				if (drawEnemy == true)
 				{
 					glColor3f(0.0f,1.0f,0.0f);
-					glBegin(GL_QUADS);
-						glVertex3f(enemies[i].pos.x-ENEMY_SIZE,enemies[i].pos.y-ENEMY_SIZE,0.0);
-						glVertex3f(enemies[i].pos.x+ENEMY_SIZE,enemies[i].pos.y-ENEMY_SIZE,0.0);
-						glVertex3f(enemies[i].pos.x+ENEMY_SIZE,enemies[i].pos.y+ENEMY_SIZE,0.0);
-						glVertex3f(enemies[i].pos.x-ENEMY_SIZE,enemies[i].pos.y+ENEMY_SIZE,0.0);
-					glEnd();
+					drawObj(enemies[i].pos, ENEMY_DIM);
 				}
 			}
 			++i;
@@ -339,12 +401,7 @@ void renderScene(void)
 					if (bullets[i].direction == UP)
 						bullets[i].pos.y += BULLET_SPEED*delta;
 					glColor3f(0.0f,1.0f,1.0f);
-					glBegin(GL_QUADS);
-						glVertex3f(bullets[i].pos.x-BULLET_SIZE,bullets[i].pos.y-BULLET_SIZE,0.0);
-						glVertex3f(bullets[i].pos.x+BULLET_SIZE,bullets[i].pos.y-BULLET_SIZE,0.0);
-						glVertex3f(bullets[i].pos.x+BULLET_SIZE,bullets[i].pos.y+BULLET_SIZE,0.0);
-						glVertex3f(bullets[i].pos.x-BULLET_SIZE,bullets[i].pos.y+BULLET_SIZE,0.0);
-					glEnd();
+					drawObj(bullets[i].pos, BULLET_DIM);
 				}
 			}
 			++i;
@@ -386,55 +443,90 @@ void changeSize(int w, int h)
 
 void audioCleanUp()
 {
-    // Clean up sources and buffers
-    //alDeleteSources(1, &source);
-    //alDeleteBuffers(1, &buffer);
+	// Clean up sources and buffers
+	//alDeleteSources(1, &source);
+	//alDeleteBuffers(1, &buffer);
 
-    // Exit everything
-    alutExit();
+	// Exit everything
+	alutExit();
 }
 
 #define FILENAME "sample.wav"
 
 
 const GLchar* vertexShaderSource = "\n\
-#version 150\n\
-in vec3 vertex;\n\
-varying vec3 position;\n\
+#version 330\n\
+in vec2 texCoords;\n\
+out vec3 position;\n\
+out vec2 fragmentTexCoord;\n\
 void\n\
 main()\n\
 {\n\
-	position = vertex;\n\
-    gl_Position = vec4(vertex,1.0);\n\
+	position = gl_Vertex.xyz;\n\
+	gl_TexCoord[0] = gl_MultiTexCoord0;\n\
+	fragmentTexCoord = gl_TexCoord[0].xy;\n\
+	//fragmentTexCoord = vec2(1.0, 0.0);\n\
+	//texCoord = 1.0;\n\
+	gl_Position = vec4(gl_Vertex.xyz, 1.0);//vec4(vertex,1.0);\n\
 }\n\
 ";
 
 const GLchar* fragmentShaderSource = "\n\
-#version 150\n\
-out vec4 fragmentColor;\n\
-varying vec3 position;\n\
+#version 330\n\
+uniform float gScale;\n\
+uniform sampler2D sampler;\n\
+in vec3 position;\n\
+in vec2 fragmentTexCoord;\n\
 void\n\
 main()\n\
 {\n\
-    float x_dis = position.x;\n\
-    float y_dis = position.y;\n\
+	float x_dis = position.x;\n\
+	float y_dis = position.y;\n\
 	float dst = sqrt(pow(x_dis, 2.0) + pow(y_dis, 2.0));\n\
-	if (dst < 0.5)\n\
-		fragmentColor = vec4(0.0, 1.0, 0.0, 1.0);\n\
+	if (dst < gScale)\n\
+		gl_FragColor = vec4(0.0, 1.0, 0.0, 1.0);\n\
 	else\n\
-		fragmentColor = vec4(1.0, 0.0, 0.0, 1.0);\n\
+		gl_FragColor = vec4(texture2D(sampler, fragmentTexCoord.xy));//;, position.x, 1.0);\n\
+	//if (fragmentTexCoord.y == 0.0)\n\
 }\n\
 ";
+/*
+const GLchar* fragmentShaderSource = "\n\
+#version 330\n\
+uniform float gScale;\n\
+in vec3 position;\n\
+in vec2 fragmentTexCoord;\n\
+out vec4 fragmentColor;\n\
+void\n\
+main()\n\
+{\n\
+	float x_dis = position.x;\n\
+	float y_dis = position.y;\n\
+	float dst = sqrt(pow(x_dis, 2.0) + pow(y_dis, 2.0));\n\
+	if (dst < gScale)\n\
+		fragmentColor = vec4(0.0, 1.0, 0.0, 1.0);\n\
+	else\n\
+		fragmentColor = vec4(fragmentTexCoord, 0.0, 1.0);\n\
+}\n\
+";*/
+
+void checkError(GLint status, const char *msg)
+{
+	if (!status)
+	{
+	printf("%s\n", msg);
+	exit(EXIT_FAILURE);
+	}
+}
 
 int main(int argc, char **argv)
 {
 	
 	printf("Elapsed seconds\n");
-	fflush(stdout);
 	
 	
-    alutInit(0, NULL);
-    alGetError();
+	alutInit(0, NULL);
+	alGetError();
 	ALuint state;
 	
 	int i = 0;
@@ -466,7 +558,7 @@ int main(int argc, char **argv)
 		++i;
 	}
 	
-    // Play
+	// Play
 	//alSourcePlay(source);	
 	
 	srand(time(0));
@@ -495,11 +587,27 @@ int main(int argc, char **argv)
 	glShaderSource(fShader, 1, &fragmentShaderSource, NULL);
 	glCompileShader(vShader);
 	glCompileShader(fShader);
-	GLuint program = glCreateProgram();
-	glAttachShader(program, vShader);
-	glAttachShader(program, fShader);
-	glLinkProgram(program);
-	glUseProgram(program);
+	
+	int error = glGetError();
+	GLchar infoLog[1024];
+	GLsizei size;
+	glGetShaderInfoLog(vShader, 1024, &size, infoLog);
+	printf("vert shader: %s \n", infoLog);
+	glGetShaderInfoLog(fShader, 1024, &size, infoLog);
+	printf("frag shader: %s \n", infoLog);
+	//printf("shader compile error: %s \n", gluErrorString(error));
+	
+	sProgram = glCreateProgram();
+	glAttachShader(sProgram, vShader);
+	glAttachShader(sProgram, fShader);
+	glLinkProgram(sProgram);
+	glUseProgram(sProgram);
+	gScaleLocation = glGetUniformLocation(sProgram, "gScale");
+	samplerLocation = glGetUniformLocation(sProgram, "sampler");
+	
+	//printf("raw img load err: %d", raw_texture_load("image.raw", 64, 64));
+	printf("raw img load err: %d", loadTexture("test.png", 64, 64));
+	fflush(stdout);
 	
 	// register callbacks
 	glutDisplayFunc(renderScene);

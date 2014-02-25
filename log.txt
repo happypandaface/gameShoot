@@ -1,1 +1,6 @@
 Elapsed seconds
+vert shader: Vertex shader was successfully compiled to run on hardware.
+  
+frag shader: Fragment shader was successfully compiled to run on hardware.
+  
+raw img load err: 1
